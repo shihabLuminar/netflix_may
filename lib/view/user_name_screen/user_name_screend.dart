@@ -30,24 +30,37 @@ class UserNameScreen extends StatelessWidget {
         child: GridView.builder(
             shrinkWrap: true,
             padding: EdgeInsets.symmetric(horizontal: 75),
-            itemCount: DummyDb.usersList.length,
+            itemCount: DummyDb.usersList.length + 1,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisSpacing: 25,
                 mainAxisSpacing: 22,
                 crossAxisCount: 2,
                 mainAxisExtent: 121),
-            itemBuilder: (context, index) => Column(
-                  children: [
-                    Image.asset(
-                      DummyDb.usersList[index]["imagePath"],
-                      height: 92,
-                    ),
-                    Text(
-                      DummyDb.usersList[index]["name"],
-                      style: TextStyle(color: Colors.white, height: 2),
-                    )
-                  ],
-                )),
+            itemBuilder: (context, index) => index < DummyDb.usersList.length
+                ? Column(
+                    children: [
+                      Image.asset(
+                        DummyDb.usersList[index]["imagePath"],
+                        height: 92,
+                      ),
+                      Text(
+                        DummyDb.usersList[index]["name"],
+                        style: TextStyle(color: Colors.white, height: 2),
+                      )
+                    ],
+                  )
+                : Column(
+                    children: [
+                      Image.asset(
+                        ImageConstants.ADD_BUTTON,
+                        height: 92,
+                      ),
+                      Text(
+                        "Add",
+                        style: TextStyle(color: Colors.white, height: 2),
+                      )
+                    ],
+                  )),
       ),
     );
   }
