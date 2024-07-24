@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:netflix_may/dummy_db.dart';
 import 'package:netflix_may/utils/color_constants.dart';
 import 'package:netflix_may/utils/image_constants.dart';
+import 'package:netflix_may/view/global_widgets/user_name_card.dart';
+import 'package:netflix_may/view/home_screen/home_screen.dart';
 
 class UserNameScreen extends StatelessWidget {
   const UserNameScreen({super.key});
@@ -37,29 +39,25 @@ class UserNameScreen extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisExtent: 121),
             itemBuilder: (context, index) => index < DummyDb.usersList.length
-                ? Column(
-                    children: [
-                      Image.asset(
-                        DummyDb.usersList[index]["imagePath"],
-                        height: 92,
-                      ),
-                      Text(
-                        DummyDb.usersList[index]["name"],
-                        style: TextStyle(color: Colors.white, height: 2),
-                      )
-                    ],
+                ? UserNameCard(
+                    name: DummyDb.usersList[index]["name"],
+                    image: DummyDb.usersList[index]["imagePath"],
+                    onCardTapped: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ));
+                    },
                   )
-                : Column(
-                    children: [
-                      Image.asset(
-                        ImageConstants.ADD_BUTTON,
-                        height: 92,
-                      ),
-                      Text(
-                        "Add",
-                        style: TextStyle(color: Colors.white, height: 2),
-                      )
-                    ],
+                : UserNameCard(
+                    name: "Add",
+                    image: ImageConstants.ADD_BUTTON,
+                    onCardTapped: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: ColorConstants.red,
+                          content: Text("Feature not available")));
+                    },
                   )),
       ),
     );
