@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_may/dummy_db.dart';
 import 'package:netflix_may/utils/color_constants.dart';
 import 'package:netflix_may/utils/image_constants.dart';
+import 'package:netflix_may/view/home_screen/widgets/custom_poster_builder.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,17 +11,107 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstants.mainBlack,
-      body: Column(
-        children: [
-          // #1 top ten section
-          _buildTopTenSection(),
-          SizedBox(height: 20),
-          //#2 play button section
-          Row(
-            children: [Column()],
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // #1 top ten section
+            _buildTopTenSection(),
+            SizedBox(height: 11),
+            //#2 play button section
+            _buildPlayButtonSection(),
+            SizedBox(height: 15),
+            CustomPosterBuilder(
+              imagesList: DummyDb.imagesList1,
+              title: "Previews",
+              width: 102,
+              isCircle: true,
+            ),
+            CustomPosterBuilder(
+              imagesList: DummyDb.imagesList1,
+              title: "Continue Watching for Emenalo",
+            ),
+            CustomPosterBuilder(
+              imagesList: DummyDb.imagesList1,
+              title: "Popular on Netflix",
+              height: 251,
+              width: 154,
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget _buildPlayButtonSection() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            Icon(
+              Icons.add,
+              size: 24,
+              color: ColorConstants.mainWhite,
+            ),
+            SizedBox(height: 5),
+            Text(
+              "My List",
+              style: TextStyle(
+                color: ColorConstants.mainWhite,
+                fontSize: 14,
+              ),
+            )
+          ],
+        ),
+        SizedBox(
+          width: 42,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            color: ColorConstants.grey,
+          ),
+          padding: EdgeInsets.symmetric(vertical: 9, horizontal: 20),
+          child: Row(
+            children: [
+              Icon(
+                Icons.play_arrow,
+                size: 25,
+                color: ColorConstants.mainBlack,
+              ),
+              SizedBox(width: 15),
+              Text(
+                "Play",
+                style: TextStyle(
+                  color: ColorConstants.mainBlack,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              )
+            ],
+          ),
+        ),
+        SizedBox(
+          width: 42,
+        ),
+        Column(
+          children: [
+            Icon(
+              Icons.info_outline,
+              size: 24,
+              color: ColorConstants.mainWhite,
+            ),
+            SizedBox(height: 5),
+            Text(
+              "Info",
+              style: TextStyle(
+                color: ColorConstants.mainWhite,
+                fontSize: 14,
+              ),
+            )
+          ],
+        ),
+      ],
     );
   }
 
