@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix_may/dummy_db.dart';
 import 'package:netflix_may/utils/color_constants.dart';
 import 'package:netflix_may/utils/image_constants.dart';
+import 'package:netflix_may/view/bottom_navbar_screen/bottom_navbar_screen.dart';
 import 'package:netflix_may/view/global_widgets/user_name_card.dart';
 import 'package:netflix_may/view/home_screen/home_screen.dart';
 
@@ -46,7 +47,7 @@ class UserNameScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
+                            builder: (context) => BottomNavbarScreen(),
                           ));
                     },
                   )

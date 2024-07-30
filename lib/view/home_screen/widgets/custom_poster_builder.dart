@@ -3,6 +3,7 @@ import 'package:netflix_may/utils/color_constants.dart';
 
 class CustomPosterBuilder extends StatelessWidget {
   const CustomPosterBuilder({
+    this.isInfoVisible = false,
     this.isCircle = false,
     super.key,
     this.height = 177,
@@ -14,6 +15,7 @@ class CustomPosterBuilder extends StatelessWidget {
   final double height;
   final double width;
   final String title;
+  final bool isInfoVisible;
   final List<String> imagesList;
 
   @override
@@ -52,6 +54,44 @@ class CustomPosterBuilder extends StatelessWidget {
                 ),
                 height: height,
                 width: width,
+                child: Visibility(
+                  visible: isInfoVisible,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        height: 3,
+                        width: double.infinity,
+                        color: ColorConstants.dartkGrey,
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          height: 3,
+                          color: ColorConstants.red,
+                          width: 35,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 7),
+                        color: ColorConstants.mainBlack,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.info_outline,
+                              size: 24,
+                              color: ColorConstants.mainWhite,
+                            ),
+                            Icon(
+                              Icons.more_vert,
+                              size: 24,
+                              color: ColorConstants.mainWhite,
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
               separatorBuilder: (context, index) => SizedBox(
                 width: 7,

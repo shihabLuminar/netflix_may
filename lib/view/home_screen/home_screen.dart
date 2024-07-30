@@ -27,6 +27,15 @@ class HomeScreen extends StatelessWidget {
               isCircle: true,
             ),
             CustomPosterBuilder(
+              isInfoVisible: true,
+              imagesList: DummyDb.imagesList1,
+              title: "Continue Watching for Emenalo",
+            ),
+            CustomPosterBuilder(
+              imagesList: DummyDb.imagesList1,
+              title: "Continue Watching for Emenalo",
+            ),
+            CustomPosterBuilder(
               imagesList: DummyDb.imagesList1,
               title: "Continue Watching for Emenalo",
             ),
@@ -35,6 +44,14 @@ class HomeScreen extends StatelessWidget {
               title: "Popular on Netflix",
               height: 251,
               width: 154,
+            ),
+            CustomPosterBuilder(
+              imagesList: DummyDb.imagesList1,
+              title: "Continue Watching for Emenalo",
+            ),
+            CustomPosterBuilder(
+              imagesList: DummyDb.imagesList1,
+              title: "Continue Watching for Emenalo",
             ),
           ],
         ),
