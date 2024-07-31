@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_may/utils/color_constants.dart';
+import 'package:netflix_may/view/comming_soon_screen/comming_soon_screen.dart';
 import 'package:netflix_may/view/home_screen/home_screen.dart';
+import 'package:netflix_may/view/search_screen/search_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
   const BottomNavbarScreen({super.key});
@@ -12,8 +14,8 @@ class BottomNavbarScreen extends StatefulWidget {
 class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   List screensList = [
     HomeScreen(),
-    Container(color: Colors.red),
-    Container(color: Colors.green),
+    SearchScreen(),
+    CommingSoonScreen(),
     Container(color: Colors.blue),
     Container(color: Colors.yellow),
   ];
