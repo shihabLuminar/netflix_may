@@ -12,7 +12,7 @@ class CommingSoonScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorConstants.mainBlack,
       appBar: AppBar(
-        titleSpacing: 0,
+        titleSpacing: 0.0,
         leadingWidth: 60,
         backgroundColor: ColorConstants.mainBlack,
         leading: Padding(
