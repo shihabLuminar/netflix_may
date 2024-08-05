@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix_may/utils/color_constants.dart';
 import 'package:netflix_may/view/comming_soon_screen/comming_soon_screen.dart';
 import 'package:netflix_may/view/home_screen/home_screen.dart';
+import 'package:netflix_may/view/notificatoins_screen/notifications_screen.dart';
 import 'package:netflix_may/view/search_screen/search_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     HomeScreen(),
     SearchScreen(),
     CommingSoonScreen(),
-    Container(color: Colors.blue),
+    NotificationsScreen(),
     Container(color: Colors.yellow),
   ];
   int selecteIndex = 0;
